@@ -5,6 +5,22 @@
 
 ## How to use it
 
+Installation
+
+```sh
+npm i -D tailwindcss-miniprogram-preset
+# or
+yarn add -D tailwindcss-miniprogram-preset
+```
+
+Then
+
+[Installing Tailwind CSS as a PostCSS plugin](https://tailwindcss.com/docs/installation)
+
+and `npx tailwindcss init`
+
+then add `tailwindcss-miniprogram-preset` into your `presets`:
+
 ```js
 // tailwind.config.js
 module.exports = {
@@ -12,6 +28,16 @@ module.exports = {
   // ...
 }
 ```
+
+Then import tailwindcss
+
+```css
+/* @tailwind base;
+@tailwind components; */
+@tailwind utilities;
+```
+
+or Using with Preprocessors
 
 ```scss
 <style lang="scss">
@@ -31,6 +57,10 @@ module.exports = {
 建议配合 vscode 插件 [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 使用
 
 可以根据配置自动生成智能提示,可有效提升开发体验
+
+使用 `uni-app` 的朋友可以直接使用提供的模板
+
+[uni-app-vue3-tailwind-vscode-template](https://github.com/sonofmagic/uni-app-vue3-tailwind-vscode-template)
 
 ## 默认配置
 
@@ -85,3 +115,4 @@ module.exports = {
 ## corePlugins 启用状况
 
 {{id:corePlugins}}
+
