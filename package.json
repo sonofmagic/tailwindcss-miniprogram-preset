@@ -1,0 +1,36 @@
+{
+  "name": "tailwindcss-miniprogram-preset",
+  "version": "1.0.0",
+  "description": "tailwindcss-miniprogram-preset",
+  "main": "src/index.js",
+  "files": [
+    "src/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/tailwindcss-miniprogram-preset.git"
+  },
+  "keywords": [
+    "tailwindcss",
+    "miniprogram",
+    "preset",
+    "tailwindcss-preset",
+    "wechat",
+    "uniapp",
+    "uni-app",
+    "HBuilderX",
+    "微信",
+    "支付宝",
+    "小程序",
+    "wxss"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset/issues"
+  },
+  "homepage": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset#readme"
+}
