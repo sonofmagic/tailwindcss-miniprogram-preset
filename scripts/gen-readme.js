@@ -10,9 +10,12 @@ const mdTemplate = fs.readFileSync(resolve('./template.md'), {
 })
 const pluginsTableHeader = '|插件|是否启用|\n|---|---|\n'
 
+const createSpan = (enable) => {
+  return `<span style="color:${enable ? 'green' : 'red'};font-weight: bolder;">${enable ? '是' : '否'}</span>`
+}
 const pluginsTable = allCorePlugins.reduce((acc, cur) => {
   const enableFlag = selectedCorePlugins.includes(cur)
-  acc += '|**' + cur + '**|' + `${enableFlag ? '<font color="green">是</font>' : '<font color="red">否</font>'}` + '|\n'
+  acc += '|**' + cur + '**|' + createSpan(enableFlag) + '|\n'
   return acc
 }, pluginsTableHeader)
 
