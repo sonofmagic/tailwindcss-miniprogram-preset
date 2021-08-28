@@ -4,10 +4,11 @@
   "description": "tailwindcss-miniprogram-preset",
   "main": "src/index.js",
   "files": [
-    "src/*"
+    "src"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gen": "node scripts/gen-readme.js",
+    "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
@@ -32,5 +33,14 @@
   "bugs": {
     "url": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset/issues"
   },
-  "homepage": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset#readme"
+  "homepage": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset#readme",
+  "devDependencies": {
+    "@types/tailwindcss": "^2.2.1",
+    "eslint": "7.12.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "tailwindcss": "^2.2.8"
+  }
 }
