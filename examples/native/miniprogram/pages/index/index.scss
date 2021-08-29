@@ -1,0 +1,18 @@
+::placeholder {
+  color: gray;
+}
+
+.image {
+  background-image: url(image@1x.png);
+}
+@media (min-resolution: 2dppx) {
+  .image {
+    background-image: url(image@2x.png);
+  }
+}
+
+.usermotto {
+  .user-motto {
+    margin-top: 100rpx;
+  }
+}

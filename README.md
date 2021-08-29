@@ -108,6 +108,20 @@ or Using with Preprocessors
 
 [官方参考文档](https://www.tailwindcss.cn/docs/presets)
 
+## 注意事项
+
+如果开发时，HMR 热更新不起作用，可以更改 purge 设置
+
+```js
+// tailwind.config.js
+const miniprogramPreset = require('tailwindcss-miniprogram-preset')
+/** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
+module.exports = {
+  purge: miniprogramPreset.purge.content,
+  presets: [miniprogramPreset]
+}
+```
+
 ## corePlugins 启用状况
 
 |插件|是否启用|
