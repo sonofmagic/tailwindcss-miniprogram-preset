@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "compile": "./node_modules/typescript/bin/tsc",
-    "tsc": "node ./node_modules/typescript/lib/tsc.js"
+    "compile": "tsc",
+    "tsc": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "miniprogram-api-typings": "^2.8.3-1",
-    "typescript": "^3.3.3333"
+    "miniprogram-api-typings": "^3.4.3",
+    "typescript": "^4.4.2"
   }
 }
