@@ -65,7 +65,7 @@ or Using with Preprocessors
 - `darkMode` 默认 `false`
 - `theme.screens` 默认 `false` , 不需要 pc 那种自适应
 - `important` 默认 `true` , 需要用它去覆盖原生样式
-- `purge.enabled` 默认 `true` , 避免打包出来的 wxss 过大，影响上传
+- `purge.enabled` 默认 `process.env.NODE_ENV === 'production'` ,可通过 `NODE_ENV` 环境变量,避免打包出来的 wxss 过大的问题,开发环境默认关闭
 - 一些 `class` 的 `rename` 见下表
 
 ## 定制化兼容小程序的牺牲
@@ -76,8 +76,8 @@ or Using with Preprocessors
 
 | form | to      | sample             |
 | ---- | ------- | ------------------ |
-| '\/' | '-div-' | w-1/4 -> w-1-div-4 |
-| '\.' | '-dot-' | w-1.5 -> w-1-dot-5 |
+| `\/` | `-div-` | `w-1/4` -> `w-1-div-4` |
+| `\.` | `-dot-` | `w-1.5` -> `w-1-dot-5` |
 
 ### 小程序 wxss 只支持少量选择器
 
@@ -110,7 +110,9 @@ or Using with Preprocessors
 
 ## 注意事项
 
-如果开发时，HMR 热更新不起作用，可以更改 purge 设置
+如果开发时，HMR 热更新不起作用，可以更改 `purge` 选项
+
+也可以直接用自定义的 `purge` 选项, 覆盖当前 `preset`
 
 ```js
 // tailwind.config.js

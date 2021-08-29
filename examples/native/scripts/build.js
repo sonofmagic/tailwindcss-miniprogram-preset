@@ -7,10 +7,14 @@ const postcss = require('postcss')
 const chokidar = require('chokidar')
 const sass = require('sass')
 const Fiber = require('fibers')
-// ${suffixArray.join(',')}
+const internalPath = require('path')
+// purgecss
+
 const suffixArray = [
   // 'wxss'
-  'scss'
+  'scss',
+  // wxml 更改触发 css purge
+  'wxml'
   // 'less'
 ]
 
@@ -34,7 +38,7 @@ const watcher = chokidar.watch(`./miniprogram/**/*.${getHolder(suffixArray)}`, {
 })
 const { plugins } = require('../postcss.config')
 
-function handle (path) {
+function handleScss (path) {
   sass.render({
     file: path,
     fiber: Fiber
@@ -58,20 +62,22 @@ function handle (path) {
 watcher
   .on('add', path => {
     log(`File ${path} has been added`)
-    handle(path)
+    const extname = internalPath.extname(path)
+    if (extname === '.scss') { handleScss(path) }
   })
-  .on('change', (path, stats) => {
+  .on('change', (path) => {
     log(`File ${path} has been change`)
-    handle(path)
+    const extname = internalPath.extname(path)
+    if (extname === '.scss') { handleScss(path) } else if (extname === '.wxml') {
+      const guessScssPath = path.replace('.wxml', '.scss')
+      const exists = fs.existsSync(guessScssPath)
+      if (exists) {
+        handleScss(guessScssPath)
+      }
+    }
   })
   .on('unlink', path => log(`File ${path} has been removed`))
   .on('error', error => log(`Watcher error: ${error}`))
   .on('ready', () => {
     log('Initial scan complete. Ready for changes')
   })
-
-// .on('addDir', path => log(`Directory ${path} has been added`))
-// .on('unlinkDir', path => log(`Directory ${path} has been removed`))
-// .on('raw', (event, path, details) => { // internal
-//   log('Raw event info:', event, path, details)
-// })

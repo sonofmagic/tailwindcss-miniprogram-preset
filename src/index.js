@@ -15,7 +15,7 @@ module.exports = {
   purge: {
     // 如果 development 下,wxss过大，可以一直开启 enabled
     // 默认在 NODE_ENV=production 下开启
-    enabled: true,
+    // enabled: process.env.NODE_ENV === 'production',
     content: ['./public/index.html', './src/**/*.{vue,js,ts,jsx,tsx,wxml}']
   },
   darkMode: false, // 'class', // or 'media' or 'class'
