@@ -40,16 +40,12 @@ Then import tailwindcss
 or Using with Preprocessors
 
 ```scss
-<style lang="scss">
 // uni-app App.vue 公共部分
 // 小程序不需要 'base' 'components'
 // @import 'tailwindcss/base';
 // @import 'tailwindcss/components';
 // 只需引入工具类
 @import "tailwindcss/utilities";
-/*每个页面公共css */
-</style>
-
 ```
 
 ## 最佳实践
