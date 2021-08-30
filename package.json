@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-miniprogram-preset",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "tailwindcss-miniprogram-preset",
   "main": "src/index.js",
   "files": [

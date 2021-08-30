@@ -3,6 +3,12 @@
 > tailwindcss 小程序版本预设  
 > tailwindcss-preset for miniprogram
 
+用 `tailwindcss` 来改善你的小程序开发体验吧
+
+## 功能
+
+大部分有用的 tailwindcss utilities 兼容小程序 + rem 转 rpx
+
 ## How to use it
 
 Installation
