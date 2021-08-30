@@ -2,6 +2,7 @@
 const plugin = require('tailwindcss/plugin')
 const corePlugins = require('./corePlugins')
 const { escape } = require('./util')
+const { expandThemeConfig } = require('./defaultConfig')
 
 const emptyVariants = corePlugins.reduce((acc, cur) => {
   acc[cur] = []
@@ -23,6 +24,7 @@ module.exports = {
   corePlugins,
   theme: {
     screens: false,
+    ...expandThemeConfig,
     extend: {}
   },
   variants: {
