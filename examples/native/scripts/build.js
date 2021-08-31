@@ -44,9 +44,9 @@ function handleScss (path) {
     fiber: Fiber
   }, (err, result) => {
     if (err) {
-      console.log(err)
+      console.error(err)
     }
-    const destPath = path.replace('.scss', '.wxss')
+    const destPath = path.replace(/\.scss$/, '.wxss')
     postcss(plugins).process(result.css, {
       from: path,
       to: destPath
