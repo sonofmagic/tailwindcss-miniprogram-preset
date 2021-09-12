@@ -2,7 +2,7 @@
 const remUnitRegex = /(\d*\.?\d+) *rem/g
 
 const defaultOptions = {
-  rootValue: 16, // 减小了单位 1rem  = 4rpx 了，32为8
+  rootValue: 32,
   unitPrecision: 5,
   minPixelValue: 0
 }
