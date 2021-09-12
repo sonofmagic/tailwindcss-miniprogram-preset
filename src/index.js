@@ -35,21 +35,28 @@ module.exports = {
     plugin(function ({ addUtilities, e, config }) {
       // delve(object, keypath, [default]) 类似于get，找不到 'theme.height' 会从 defaultConfig里面找
       function escapeUtilities (path, prefix, attrKey) {
-        const utilities = Object.entries(config(path)).map(([key, value]) => {
+        const utilities = Object.entries(config(path)).reduce((acc, [key, value]) => {
+          if (path === 'theme.margin' && key[0] === '-') {
+            // do continue
+            // ignore -m-x
+            return acc
+          }
           const str = escape(`${prefix}${key}`)
           if (typeof attrKey === 'function') {
             const fn = attrKey
-            return {
+            acc.push({
               [`.${e(str)}`]: fn(value)
-            }
+            })
           } else {
-            return {
+            acc.push({
               [`.${e(str)}`]: {
                 [attrKey]: `${value}`
               }
-            }
+            })
           }
-        })
+          return acc
+        }, [])
+
         addUtilities(utilities)
       }
       escapeUtilities('theme.height', 'h-', 'height')
