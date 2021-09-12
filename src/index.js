@@ -37,9 +37,16 @@ module.exports = {
       function escapeUtilities (path, prefix, attrKey) {
         const utilities = Object.entries(config(path)).map(([key, value]) => {
           const str = escape(`${prefix}${key}`)
-          return {
-            [`.${e(str)}`]: {
-              [attrKey]: `${value}`
+          if (typeof attrKey === 'function') {
+            const fn = attrKey
+            return {
+              [`.${e(str)}`]: fn(value)
+            }
+          } else {
+            return {
+              [`.${e(str)}`]: {
+                [attrKey]: `${value}`
+              }
             }
           }
         })
@@ -47,8 +54,42 @@ module.exports = {
       }
       escapeUtilities('theme.height', 'h-', 'height')
       escapeUtilities('theme.margin', 'm-', 'margin')
+      escapeUtilities('theme.margin', 'my-', (value) => {
+        return {
+          'margin-top': `${value}`,
+          'margin-bottom': `${value}`
+        }
+      })
+      escapeUtilities('theme.margin', 'mx-', (value) => {
+        return {
+          'margin-left': `${value}`,
+          'margin-right': `${value}`
+        }
+      })
+      escapeUtilities('theme.margin', 'mt-', 'margin-top')
+      escapeUtilities('theme.margin', 'mr-', 'margin-right')
+      escapeUtilities('theme.margin', 'mb-', 'margin-bottom')
+      escapeUtilities('theme.margin', 'ml-', 'margin-left')
       escapeUtilities('theme.maxHeight', 'max-h-', 'max-height')
       escapeUtilities('theme.padding', 'p-', 'padding')
+
+      escapeUtilities('theme.padding', 'py-', (value) => {
+        return {
+          'padding-top': `${value}`,
+          'padding-bottom': `${value}`
+        }
+      })
+      escapeUtilities('theme.padding', 'px-', (value) => {
+        return {
+          'padding-left': `${value}`,
+          'padding-right': `${value}`
+        }
+      })
+      escapeUtilities('theme.padding', 'pt-', 'padding-top')
+      escapeUtilities('theme.padding', 'pr-', 'padding-right')
+      escapeUtilities('theme.padding', 'pb-', 'padding-bottom')
+      escapeUtilities('theme.padding', 'pl-', 'padding-left')
+
       escapeUtilities('theme.width', 'w-', 'width')
     })
   ]

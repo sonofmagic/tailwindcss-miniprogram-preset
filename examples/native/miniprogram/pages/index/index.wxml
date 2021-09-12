@@ -2,7 +2,7 @@
 <view class="container">
   <view class="userinfo w-96 {{'h-4'}} " >
     <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar w-5" bindtap="bindViewTap">
+      <view class="userinfo-avatar w-5 mb-10 mx-4" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
       </view>
       <open-data type="userNickName"></open-data>
