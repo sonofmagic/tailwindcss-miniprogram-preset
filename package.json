@@ -36,11 +36,11 @@
   "homepage": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset#readme",
   "devDependencies": {
     "@types/tailwindcss": "^2.2.1",
-    "eslint": "7.12.1",
+    "eslint": "8.1.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import": "2.25.2",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "4.2.1",
-    "tailwindcss": "^2.2.8"
+    "eslint-plugin-promise": "5.1.1",
+    "tailwindcss": "^2.2.17"
   }
 }
