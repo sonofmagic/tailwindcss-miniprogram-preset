@@ -7,7 +7,7 @@
 
 ## 功能
 
-大部分有用的 tailwindcss utilities 兼容小程序 + rem 转 rpx (默认 1rem = 4rpx)
+大部分有用的 tailwindcss utilities 兼容小程序 + rem 转 rpx (默认 1rem = 32rpx)
 
 ## How to use it
 
