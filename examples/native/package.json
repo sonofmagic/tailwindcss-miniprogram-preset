@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "tsc -w",
+    "dev": "npm run dev:ts || npm run css",
+    "dev:ts": "tsc -w",
     "css": "node scripts/build.js",
     "purge:css": "cross-env NODE_ENV=production node scripts/build.js"
   },
@@ -12,15 +13,15 @@
   "license": "",
   "dependencies": {},
   "devDependencies": {
-    "@types/tailwindcss": "^2.2.1",
-    "autoprefixer": "^10.3.3",
+    "@types/tailwindcss": "^2.2.4",
+    "autoprefixer": "^10.4.0",
     "chokidar": "^3.5.2",
     "cross-env": "^7.0.3",
     "fibers": "^5.0.0",
-    "miniprogram-api-typings": "^3.4.3",
-    "postcss": "^8.3.6",
-    "sass": "^1.38.2",
-    "tailwindcss": "^2.2.8",
-    "typescript": "^4.4.2"
+    "miniprogram-api-typings": "^3.4.4",
+    "postcss": "^8.3.11",
+    "sass": "^1.43.4",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4"
   }
 }
