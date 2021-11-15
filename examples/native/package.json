@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "npm run dev:ts || npm run css",
-    "dev:ts": "tsc -w",
+    "dev": "tsc -w",
     "css": "node scripts/build.js",
     "purge:css": "cross-env NODE_ENV=production node scripts/build.js"
   },
