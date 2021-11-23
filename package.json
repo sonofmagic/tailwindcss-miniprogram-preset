@@ -1,15 +1,17 @@
 {
   "name": "tailwindcss-miniprogram-preset",
   "version": "1.0.7",
-  "description": "tailwindcss-miniprogram-preset",
-  "main": "src/index.js",
+  "description": "tailwindcss-miniprogram-preset 助力微信小程序开发者!",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c",
     "gen": "node scripts/gen-readme.js",
-    "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
+    "publish:npm": "yarn publish"
   },
   "repository": {
     "type": "git",
@@ -29,13 +31,22 @@
     "小程序",
     "wxss"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "ice breaker <1324318532@qq.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "homepage": "https://github.com/sonofmagic/tailwindcss-miniprogram-preset#readme",
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.8",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@types/jest": "^27.0.3",
     "@types/tailwindcss": "^2.2.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
