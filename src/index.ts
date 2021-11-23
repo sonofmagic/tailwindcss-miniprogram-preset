@@ -1,16 +1,14 @@
-
-const plugin = require('tailwindcss/plugin')
-const corePlugins = require('./corePlugins')
-const { escape } = require('./util')
-const { expandThemeConfig } = require('./defaultConfig')
-
-const emptyVariants = corePlugins.reduce((acc, cur) => {
+import plugin from 'tailwindcss/plugin'
+import corePlugins from './corePlugins'
+import { escape } from './util'
+import { expandThemeConfig } from './defaultConfig'
+import type { TailwindConfig } from 'tailwindcss/tailwind-config'
+const emptyVariants = corePlugins.reduce<Record<string, any[]>>((acc, cur) => {
   acc[cur] = []
   return acc
 }, {})
 
-/** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
-module.exports = {
+const config: TailwindConfig = {
   // 由于微信小程序会把 w-[750rpx] 中的中括号强制去除，所以不推荐开启此模式
   // mode: 'jit',
   purge: {
@@ -23,7 +21,7 @@ module.exports = {
   important: true,
   corePlugins,
   theme: {
-    screens: false,
+    screens: {}, // false,
     ...expandThemeConfig,
     extend: {}
   },
@@ -34,8 +32,14 @@ module.exports = {
   plugins: [
     plugin(function ({ addUtilities, e, config }) {
       // delve(object, keypath, [default]) 类似于get，找不到 'theme.height' 会从 defaultConfig里面找
-      function escapeUtilities (path, prefix, attrKey) {
-        const utilities = Object.entries(config(path)).reduce((acc, [key, value]) => {
+      function escapeUtilities(
+        path: string,
+        prefix: string,
+        attrKey: string | ((value: string) => any)
+      ) {
+        const utilities = Object.entries(config(path)).reduce<
+          Record<string, any>[]
+        >((acc, [key, value]) => {
           if (path === 'theme.margin' && key[0] === '-') {
             // do continue
             // ignore -m-x
@@ -45,7 +49,7 @@ module.exports = {
           if (typeof attrKey === 'function') {
             const fn = attrKey
             acc.push({
-              [`.${e(str)}`]: fn(value)
+              [`.${e(str)}`]: fn(value as string)
             })
           } else {
             acc.push({
@@ -61,13 +65,13 @@ module.exports = {
       }
       escapeUtilities('theme.height', 'h-', 'height')
       escapeUtilities('theme.margin', 'm-', 'margin')
-      escapeUtilities('theme.margin', 'my-', (value) => {
+      escapeUtilities('theme.margin', 'my-', (value: string) => {
         return {
           'margin-top': `${value}`,
           'margin-bottom': `${value}`
         }
       })
-      escapeUtilities('theme.margin', 'mx-', (value) => {
+      escapeUtilities('theme.margin', 'mx-', (value: string) => {
         return {
           'margin-left': `${value}`,
           'margin-right': `${value}`
@@ -80,13 +84,13 @@ module.exports = {
       escapeUtilities('theme.maxHeight', 'max-h-', 'max-height')
       escapeUtilities('theme.padding', 'p-', 'padding')
 
-      escapeUtilities('theme.padding', 'py-', (value) => {
+      escapeUtilities('theme.padding', 'py-', (value: string) => {
         return {
           'padding-top': `${value}`,
           'padding-bottom': `${value}`
         }
       })
-      escapeUtilities('theme.padding', 'px-', (value) => {
+      escapeUtilities('theme.padding', 'px-', (value: string) => {
         return {
           'padding-left': `${value}`,
           'padding-right': `${value}`
@@ -101,3 +105,5 @@ module.exports = {
     })
   ]
 }
+
+export default config

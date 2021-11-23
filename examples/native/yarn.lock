@@ -927,6 +927,11 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+tailwindcss-miniprogram-preset@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmmirror.com/tailwindcss-miniprogram-preset/download/tailwindcss-miniprogram-preset-1.0.7.tgz#775202e7a7dc7004a3bf83e3cab3cb555091f5b4"
+  integrity sha1-d1IC56fccASjv4PjyrPLVVCR9bQ=
+
 tailwindcss@^2.2.19:
   version "2.2.19"
   resolved "https://registry.npmmirror.com/tailwindcss/download/tailwindcss-2.2.19.tgz#540e464832cd462bb9649c1484b0a38315c2653c"

@@ -14,5 +14,5 @@ module.exports = {
     content: ['**/*.wxml']
     // css: ['**/*.wxss']
   },
-  presets: [require('../../src/index')]
+  presets: [require('tailwindcss-miniprogram-preset')]
 }

@@ -1,8 +1,6 @@
+import type { TailwindCorePlugin } from 'tailwindcss/tailwind-config'
 
-/**
- * @typedef {import('@types/tailwindcss/tailwind-config').TailwindConfig} TailwindConfig
- */
-const corePlugins = [
+const corePlugins: TailwindCorePlugin[] = [
   // #endregion 基础样式
   // 'preflight',
   // #endregion
@@ -117,7 +115,7 @@ const corePlugins = [
   'wordBreak',
   // 'width',
   'zIndex',
-  // #region  网格布局
+  // #region  网格布局(小程序自己的兼容问题还没搞定)
   // 'gap',
   // 'gridAutoFlow',
   // 'gridTemplateColumns',
@@ -144,4 +142,4 @@ const corePlugins = [
   'animation'
 ]
 
-module.exports = corePlugins
+export default corePlugins
