@@ -1,5 +1,3 @@
-import config, { createPreset as _createPreset } from './config'
-
-export const createPreset = _createPreset
+import config from './config'
 
 export default config

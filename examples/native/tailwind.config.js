@@ -1,5 +1,5 @@
 const miniprogramPreset = require('tailwindcss-miniprogram-preset')
-
+console.log(miniprogramPreset)
 /** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
 module.exports = {
   // purge: [],
@@ -16,5 +16,5 @@ module.exports = {
     content: ['**/*.wxml']
     // css: ['**/*.wxss']
   },
-  presets: [miniprogramPreset]
+  presets: [miniprogramPreset.default]
 }

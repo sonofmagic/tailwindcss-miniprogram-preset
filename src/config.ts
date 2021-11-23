@@ -26,6 +26,7 @@ export interface IPresetOption {
 
 export function createPreset (option?: IPresetOption): TailwindConfig {
   const expandThemeConfig = createExpandThemeConfig(option)
+
   return {
     // 由于微信小程序会把 w-[750rpx] 中的中括号强制去除，所以不推荐开启此模式
     // mode: 'jit',
@@ -125,6 +126,9 @@ export function createPreset (option?: IPresetOption): TailwindConfig {
   }
 }
 
-const config = createPreset()
+const config: TailwindConfig & { createPreset?: typeof createPreset } =
+  createPreset()
+
+config.createPreset = createPreset
 
 export default config
