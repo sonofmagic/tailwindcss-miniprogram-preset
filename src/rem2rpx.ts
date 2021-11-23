@@ -1,3 +1,5 @@
+import type { IPresetOption } from './config'
+
 export const remUnitRegex = /(\d*\.?\d+) *rem/g
 
 export const defaultOptions = {
@@ -6,19 +8,13 @@ export const defaultOptions = {
   minPixelValue: 0
 }
 
-export const remReplace = createRemReplace(
-  defaultOptions.rootValue,
-  defaultOptions.unitPrecision,
-  defaultOptions.minPixelValue
-)
-
-export function toFixed(number: number, precision: number) {
+export function toFixed (number: number, precision: number) {
   const multiplier = Math.pow(10, precision + 1)
   const wholeNumber = Math.floor(number * multiplier)
   return (Math.round(wholeNumber / 10) * 10) / multiplier
 }
 
-export function createRemReplace(
+export function createRemReplace (
   rootValue: number,
   unitPrecision: number,
   minPixelValue: number
@@ -32,8 +28,15 @@ export function createRemReplace(
   }
 }
 
-export function rem2rpx(str: string) {
-  // 重新创建解决 exec 问题
-  const execArr = /(\d*\.?\d+) *rem/g.exec(str)
-  return execArr ? remReplace(str, execArr[1]) : str
+export function createRem2rpx (option: IPresetOption) {
+  const remReplace = createRemReplace(
+    option.rootValue,
+    option.unitPrecision,
+    option.minPixelValue
+  )
+  return (str: string) => {
+    const execArr = /(\d*\.?\d+) *rem/g.exec(str)
+    return execArr ? remReplace(str, execArr[1]) : str
+  }
 }
+export const rem2rpx = createRem2rpx(defaultOptions)

@@ -25,5 +25,5 @@
     }
   },
   "exclude": ["dist", "node_modules", "test/types"],
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["src/**/*", "types/**/*", "test"]
 }

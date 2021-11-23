@@ -927,10 +927,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-tailwindcss-miniprogram-preset@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmmirror.com/tailwindcss-miniprogram-preset/download/tailwindcss-miniprogram-preset-1.0.7.tgz#775202e7a7dc7004a3bf83e3cab3cb555091f5b4"
-  integrity sha1-d1IC56fccASjv4PjyrPLVVCR9bQ=
+tailwindcss-miniprogram-preset@^2.0.0-beta.1:
+  version "2.0.0-beta.1"
+  resolved "https://registry.npmmirror.com/tailwindcss-miniprogram-preset/download/tailwindcss-miniprogram-preset-2.0.0-beta.1.tgz#757b1cf1623d542dfe53077bde4c8e92583a5262"
+  integrity sha512-iSb6Gy3vnBSdG7Sjp8yiH9HdD2ukDEuslUpbvDg73belg1mInYPWE2SPzcdZd1gJyFY9UErkaablYu1cJr8M2Q==
 
 tailwindcss@^2.2.19:
   version "2.2.19"

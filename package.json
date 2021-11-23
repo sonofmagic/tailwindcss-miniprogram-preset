@@ -11,7 +11,8 @@
   "scripts": {
     "build": "rollup -c",
     "gen": "node scripts/gen-readme.js",
-    "publish:npm": "yarn publish"
+    "publish:npm": "yarn publish",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,6 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/jest": "^27.0.3",
-    "@types/tailwindcss": "^2.2.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
@@ -61,5 +61,8 @@
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@types/tailwindcss": "^2.2.4"
   }
 }
