@@ -126,9 +126,8 @@ export function createPreset (option?: IPresetOption): TailwindConfig {
   }
 }
 
-const config: TailwindConfig & { createPreset?: typeof createPreset } =
-  createPreset()
+// const config: TailwindConfig & { createPreset?: typeof createPreset } =
 
-config.createPreset = createPreset
+// config.createPreset = createPreset
 
-export default config
+export default createPreset()

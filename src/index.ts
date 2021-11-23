@@ -1,3 +1,1 @@
-import config from './config'
-
-export default config
+export { default as defaultPreset, createPreset } from './config'
