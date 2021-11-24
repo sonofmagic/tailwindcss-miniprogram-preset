@@ -6,7 +6,7 @@ const fs = require('fs')
 const postcss = require('postcss')
 const chokidar = require('chokidar')
 const sass = require('sass')
-// const Fiber = require('fibers')
+const Fiber = require('fibers')
 const internalPath = require('path')
 // purgecss
 
@@ -23,7 +23,7 @@ const suffixArray = [
  * @param {Array} arr
  * @returns {string}
  */
-function getHolder(arr) {
+function getHolder (arr) {
   if (arr.length === 1) {
     return arr[0]
   } else if (arr.length > 1) {
@@ -38,10 +38,10 @@ const watcher = chokidar.watch(`./miniprogram/**/*.${getHolder(suffixArray)}`, {
 })
 const { plugins } = require('../postcss.config')
 
-function handleScss(path) {
+function handleScss (path) {
   sass.render({
-    file: path
-    // fiber: Fiber
+    file: path,
+    fiber: Fiber
   }, (err, result) => {
     if (err) {
       console.error(err)
