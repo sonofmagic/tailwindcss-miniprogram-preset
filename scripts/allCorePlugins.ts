@@ -1,4 +1,6 @@
-module.exports = [
+import type { TailwindCorePlugin } from 'tailwindcss/tailwind-config'
+
+const AllCorePlugin: TailwindCorePlugin[] = [
   'preflight',
   'container',
   'space',
@@ -119,3 +121,5 @@ module.exports = [
   'transitionDelay',
   'animation'
 ]
+
+export default AllCorePlugin

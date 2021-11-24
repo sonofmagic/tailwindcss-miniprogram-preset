@@ -20,7 +20,7 @@ const config = {
       preferBuiltins: true
     }),
     commonjs(),
-    typescript({ tsconfig: './tsconfig.json' })
+    typescript({ tsconfig: './tsconfig.build.json' })
   ]
 }
 
