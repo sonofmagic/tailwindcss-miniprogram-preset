@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "types",
+    "declarationMap": false,
+    "rootDir": "src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["es6"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noEmitOnError": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "es2017",
+    "importHelpers": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["dist", "node_modules", "test/types"],
+  "include": ["src/**/*", "types/**/*", "test"]
+}

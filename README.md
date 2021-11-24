@@ -9,6 +9,24 @@
 
 大部分有用的 tailwindcss utilities 兼容小程序 + rem 转 rpx (默认 1rem = 32rpx)
 
+## migration(From v1 -> v2)
+
+```js
+// # v1
+// tailwind.config.js
+module.exports = {
+  presets: [require('tailwindcss-miniprogram-preset')]
+  // ...
+}
+// # v2
+// tailwind.config.js
+const { defaultPreset, createPreset } = require('tailwindcss-miniprogram-preset')
+module.exports = {
+  presets: [defaultPreset]
+  // ...
+}
+```
+
 ## How to use it
 
 Installation
@@ -29,8 +47,9 @@ then add `tailwindcss-miniprogram-preset` into your `presets`:
 
 ```js
 // tailwind.config.js
+const { defaultPreset, createPreset } = require('tailwindcss-miniprogram-preset')
 module.exports = {
-  presets: [require('tailwindcss-miniprogram-preset')]
+  presets: [defaultPreset]
   // ...
 }
 ```
@@ -122,11 +141,11 @@ or Using with Preprocessors
 
 ```js
 // tailwind.config.js
-const miniprogramPreset = require('tailwindcss-miniprogram-preset')
+const { defaultPreset } = require('tailwindcss-miniprogram-preset')
 /** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
 module.exports = {
-  purge: miniprogramPreset.purge.content,
-  presets: [miniprogramPreset]
+  purge: defaultPreset.purge.content,
+  presets: [defaultPreset]
 }
 ```
 
