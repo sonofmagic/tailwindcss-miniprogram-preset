@@ -644,6 +644,11 @@
   resolved "https://registry.nlark.com/@tsconfig/node16/download/@tsconfig/node16-1.0.2.tgz?cache=0&sync_timestamp=1626840702633&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tsconfig%2Fnode16%2Fdownload%2F%40tsconfig%2Fnode16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
   integrity sha1-Qjx3h30Fadsg4fyAiFrEEYMUAQ4=
 
+"@tsconfig/recommended@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.nlark.com/@tsconfig/recommended/download/@tsconfig/recommended-1.0.1.tgz#7619bad397e06ead1c5182926c944e0ca6177f52"
+  integrity sha1-dhm605fgbq0cUYKSbJRODKYXf1I=
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   version "7.1.16"
   resolved "https://registry.npmmirror.com/@types/babel__core/download/@types/babel__core-7.1.16.tgz#bc12c74b7d65e82d29876b5d0baf5c625ac58702"
@@ -731,7 +736,7 @@
   resolved "https://registry.nlark.com/@types/json5/download/@types/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/node@*":
+"@types/node@*", "@types/node@^16.11.10":
   version "16.11.10"
   resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.10.tgz#2e3ad0a680d96367103d3e670d41c2fed3da61ae"
   integrity sha512-3aRnHa1KlOEEhJ6+CvyHKK5vE9BcLGjtUpwvqYLRvYNQKMfabu3BwfJaA/SLW8dxe28LsNDjtHwePTuzn3gmOA==
@@ -3916,6 +3921,11 @@ tslib@^1.8.1:
   version "1.14.1"
   resolved "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
+
+tslib@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
 
 tsutils@^3.21.0:
   version "3.21.0"

@@ -15,11 +15,12 @@
     "autoprefixer": "^10.4.0",
     "chokidar": "^3.5.2",
     "cross-env": "^7.0.3",
+    "fibers": "^5.0.0",
     "miniprogram-api-typings": "^3.4.4",
     "postcss": "^8.3.11",
     "sass": "^1.43.4",
     "tailwindcss": "^2.2.19",
-    "tailwindcss-miniprogram-preset": "^2.0.0-beta.4",
+    "tailwindcss-miniprogram-preset": "^2.0.1-beta.1",
     "typescript": "^4.5.2"
   }
 }

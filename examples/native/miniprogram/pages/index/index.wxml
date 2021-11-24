@@ -20,4 +20,5 @@
   <view class="text-sm">
     <text class="user-motto peolpe">{{motto}}</text>
   </view>
+  <view class="bg-green-400 rounded-full w-8 h-8 max-h"></view>
 </view>

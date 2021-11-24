@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-miniprogram-preset",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "tailwindcss-miniprogram-preset 助力微信小程序开发者!",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "gen": "node --require ts-node/register scripts/gen-readme.js",
+    "gen": "node --require ts-node/register scripts/gen-readme.ts",
     "publish:npm": "yarn publish",
     "test": "jest"
   },
@@ -47,7 +47,9 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
@@ -60,6 +62,7 @@
     "tailwindcss": "^2.2.19",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
     "typescript": "^4.5.2"
   },
   "dependencies": {

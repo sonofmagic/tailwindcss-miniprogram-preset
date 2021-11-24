@@ -8,19 +8,23 @@ import type {
   TailwindTheme,
   TailwindThemeFontSizes
 } from 'tailwindcss/tailwind-config'
-type ConfigArray = [
+
+export type ConfigArray = [
   string,
   {
     lineHeight: string
     [key: string]: string
   }
 ]
-type ConfigValue = string | ConfigArray
+export type ConfigValue = string | ConfigArray
 
 // type Config = Record<string, ConfigValue>
 
 type TransformFunc = (value: ConfigValue, ...args: any[]) => ConfigValue
-function ObjectValueMap<T = TailwindThemeValue> (obj: T, fn: TransformFunc) {
+export function ObjectValueMap<T = TailwindThemeValue> (
+  obj: T,
+  fn: TransformFunc
+) {
   return Object.entries(obj).reduce<T>((acc, [key, value], idx) => {
     // @ts-ignore
     acc[key] = fn(value as string, idx)
@@ -49,16 +53,13 @@ export function createExpandThemeConfig (option?: IPresetOption): TailwindTheme 
     // lineHeight
     lineHeight: ObjectValueMap(deepCloneConfig.theme.lineHeight, replacer),
     // maxWidth
-    maxWidth: ObjectValueMap(
-      {
-        none: 'none',
-        0: '0',
-        full: '100%',
-        min: 'min-content',
-        max: 'max-content'
-      },
-      replacer
-    )
+    maxWidth: {
+      none: 'none',
+      0: '0',
+      full: '100%',
+      min: 'min-content',
+      max: 'max-content'
+    }
   }
 }
 
