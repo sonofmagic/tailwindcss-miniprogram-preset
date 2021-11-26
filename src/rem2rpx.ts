@@ -11,12 +11,12 @@ export function toFixed (number: number, precision: number) {
 export function createRemReplace (
   rootValue: number,
   unitPrecision: number,
-  minPixelValue: number
+  minRemValue: number
 ) {
   return (m: string, $1?: string) => {
     if (!$1) return m
     const rem = parseFloat($1)
-    if (rem < minPixelValue) return m
+    if (rem < minRemValue) return m
     const fixedVal = toFixed(rem * rootValue, unitPrecision)
     return fixedVal === 0 ? '0' : fixedVal + 'rpx'
   }
@@ -26,7 +26,7 @@ export function createRem2rpx (option: IPresetOption) {
   const remReplace = createRemReplace(
     option.rootValue,
     option.unitPrecision,
-    option.minPixelValue
+    option.minRemValue
   )
   return (str: string) => {
     const execArr = /(\d*\.?\d+) *rem/g.exec(str)

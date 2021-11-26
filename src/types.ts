@@ -11,7 +11,7 @@ export interface IPresetOption {
    * 'Set the minimum pixel value to replace'
    * @default 2(Number)
    */
-  minPixelValue: number
+  minRemValue: number
   /**
    * default open rem -> rpx setting
    * @default true

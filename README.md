@@ -54,6 +54,8 @@ module.exports = {
 }
 ```
 
+> createPreset 这个方法，可以根据配置创建自定义的预设，以及是否启用 rem2rpx，可配合其他 `postcss` 插件使用，如[postcss-rem-to-responsive-pixel](https://www.npmjs.com/package/postcss-rem-to-responsive-pixel)
+
 Then import tailwindcss
 
 ```css
