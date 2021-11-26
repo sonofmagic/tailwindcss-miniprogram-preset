@@ -3368,6 +3368,11 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
+postcss-rem-to-responsive-pixel@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmmirror.com/postcss-rem-to-responsive-pixel/download/postcss-rem-to-responsive-pixel-5.0.0.tgz#0292986f1cd9e1d0a4a99cd4e22679cbf3624318"
+  integrity sha512-F9hCZjMAoqzA32wcvbG0FRamXU9hpLuFxgHvnZyARogH5zB0NNdXQQP//g0DKx4wgvnBi9asLHPEh6ziSG6miw==
+
 postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.6:
   version "6.0.6"
   resolved "https://registry.nlark.com/postcss-selector-parser/download/postcss-selector-parser-6.0.6.tgz?cache=0&sync_timestamp=1620752924836&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-selector-parser%2Fdownload%2Fpostcss-selector-parser-6.0.6.tgz#2c5bba8174ac2f6981ab631a42ab0ee54af332ea"
@@ -3394,6 +3399,15 @@ postcss@^8.1.6, postcss@^8.2.1:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
     source-map-js "^0.6.2"
+
+postcss@^8.4.1:
+  version "8.4.1"
+  resolved "https://registry.npmmirror.com/postcss/download/postcss-8.4.1.tgz#73051f825509ad1a716ef500108001bf3d1fa8f7"
+  integrity sha512-WqLs/TTzXdG+/A4ZOOK9WDZiikrRaiA+eoEb/jz2DT9KUhMNHgP7yKPO8vwi62ZCsb703Gwb7BMZwDzI54Y2Ag==
+  dependencies:
+    nanoid "^3.1.30"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.1"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -3635,6 +3649,11 @@ source-map-js@^0.6.2:
   version "0.6.2"
   resolved "https://registry.npmmirror.com/source-map-js/download/source-map-js-0.6.2.tgz#0bb5de631b41cfbda6cfba8bd05a80efdfd2385e"
   integrity sha1-C7XeYxtBz72mz7qL0FqA79/SOF4=
+
+source-map-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/source-map-js/download/source-map-js-1.0.1.tgz#a1741c131e3c77d048252adfa24e23b908670caf"
+  integrity sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==
 
 source-map-support@^0.5.6:
   version "0.5.21"

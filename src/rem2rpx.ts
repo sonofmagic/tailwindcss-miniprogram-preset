@@ -1,12 +1,6 @@
-import type { IPresetOption } from './config'
-
+import type { IPresetOption } from './types'
+import { defaultOptions } from './constant'
 export const remUnitRegex = /(\d*\.?\d+) *rem/g
-
-export const defaultOptions = {
-  rootValue: 32,
-  unitPrecision: 5,
-  minPixelValue: 0
-}
 
 export function toFixed (number: number, precision: number) {
   const multiplier = Math.pow(10, precision + 1)

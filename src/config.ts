@@ -3,26 +3,11 @@ import corePlugins from './corePlugins'
 import { escape } from './util'
 import { createExpandThemeConfig } from './defaultConfig'
 import type { TailwindConfig } from 'tailwindcss/tailwind-config'
+import type { IPresetOption } from './types'
 const emptyVariants = corePlugins.reduce<Record<string, any[]>>((acc, cur) => {
   acc[cur] = []
   return acc
 }, {})
-
-export interface IPresetOption {
-  /**
-   * @default '1rem=32rpx'
-   */
-  rootValue: number
-  /**
-   * @default 5(Number)
-   */
-  unitPrecision: number
-  /**
-   * 'Set the minimum pixel value to replace'
-   * @default 2(Number)
-   */
-  minPixelValue: number
-}
 
 export function createPreset (option?: IPresetOption): TailwindConfig {
   const expandThemeConfig = createExpandThemeConfig(option)

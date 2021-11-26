@@ -8,7 +8,7 @@ import {
   // toFixed
 } from '@/rem2rpx'
 import { ObjectValueMap } from '@/defaultConfig'
-import type { ConfigValue } from '@/defaultConfig'
+import type { ConfigValue } from '@/types'
 
 describe('[rem2rpx]', () => {
   test('rem2rpx', () => {
