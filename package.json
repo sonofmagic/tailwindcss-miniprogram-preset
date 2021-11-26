@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-miniprogram-preset",
-  "version": "2.1.0-beta.1",
+  "version": "2.1.0",
   "description": "tailwindcss-miniprogram-preset 助力微信小程序开发者!",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
