@@ -95,6 +95,34 @@ or Using with Preprocessors
 - `purge.enabled` 默认 `process.env.NODE_ENV === 'production'` ,可通过 `NODE_ENV` 环境变量,避免打包出来的 wxss 过大的问题,开发环境默认关闭
 - 一些 `class` 的 `rename` 见下表
 
+## 关闭转化
+
+将 `createPreset` 的 `rem2rpx` 设置为 `false` 即可
+```js
+// tailwind.config.js
+presets: [createPreset({
+  rem2rpx: false
+})]
+```
+
+此时需要转化为 `rpx` ，可以使用 [`postcss-rem-to-responsive-pixel`](https://www.npmjs.com/package/postcss-rem-to-responsive-pixel)
+
+可以达到同样效果的 `postcss` 配置 `demo`:
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('autoprefixer'),
+    require('tailwindcss'),
+    require('postcss-rem-to-responsive-pixel')({
+      rootValue: 32,
+      propList: ['*'],
+      transformUnit: 'rpx'
+    })
+  ]
+}
+```
+
 ## 定制化兼容小程序的牺牲
 
 ### 小程序的 class 不支持大量特殊符号

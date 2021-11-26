@@ -749,6 +749,11 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
+postcss-rem-to-responsive-pixel@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmmirror.com/postcss-rem-to-responsive-pixel/download/postcss-rem-to-responsive-pixel-5.0.0.tgz#0292986f1cd9e1d0a4a99cd4e22679cbf3624318"
+  integrity sha512-F9hCZjMAoqzA32wcvbG0FRamXU9hpLuFxgHvnZyARogH5zB0NNdXQQP//g0DKx4wgvnBi9asLHPEh6ziSG6miw==
+
 postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.6:
   version "6.0.6"
   resolved "https://registry.nlark.com/postcss-selector-parser/download/postcss-selector-parser-6.0.6.tgz?cache=0&sync_timestamp=1620752924836&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-selector-parser%2Fdownload%2Fpostcss-selector-parser-6.0.6.tgz#2c5bba8174ac2f6981ab631a42ab0ee54af332ea"
@@ -908,10 +913,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-tailwindcss-miniprogram-preset@^2.0.1-beta.1:
-  version "2.0.1-beta.1"
-  resolved "https://registry.npmmirror.com/tailwindcss-miniprogram-preset/download/tailwindcss-miniprogram-preset-2.0.1-beta.1.tgz#189437b3c797da952663c0281cfd3cbb915199ae"
-  integrity sha512-heSiphpUlszgqejCESGH+rswNGrs3CkwgXKK/cWEHqsMd/R6d8v/v16T30/g7WrOWtH6meeVjFv6t/T9Rvt3ig==
+tailwindcss-miniprogram-preset@^2.1.0-beta.1:
+  version "2.1.0-beta.1"
+  resolved "https://registry.npmmirror.com/tailwindcss-miniprogram-preset/download/tailwindcss-miniprogram-preset-2.1.0-beta.1.tgz#aa8e34a5029b87581e9f41b659367d3eeb6ee7cd"
+  integrity sha512-JtFA/F2VlSZXXrqWfR2GP1KPLEoVkehMMF/3HISu2kiOn+dIHH3AFYvBBfagbz/fi7nkVTXHMTcH3IBB3y1f2A==
   dependencies:
     "@types/tailwindcss" "^2.2.4"
 
