@@ -1,14 +1,14 @@
 const postcss = require('postcss')
 const sass = require('sass')
-const Fiber = require('fibers')
+// const Fiber = require('fibers')
 const fs = require('fs')
 const { plugins } = require('../postcss.config')
 
 function handleScss(path) {
   sass.render(
     {
-      file: path,
-      fiber: Fiber
+      file: path
+      // fiber: Fiber
     },
     (err, result) => {
       if (err) {

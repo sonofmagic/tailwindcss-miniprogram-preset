@@ -5,15 +5,17 @@ const fs = require('fs')
  */
 const chokidar = require('chokidar')
 const internalPath = require('path')
-// const tsc = require('typescript/lib/tsc')
+
 const handleScss = require('./scss')
+const handleTs = require('./ts')
 // purgecss
 
 const suffixArray = [
   // 'wxss'
   'scss',
   // wxml 更改触发 css purge
-  'wxml'
+  'wxml',
+  'ts'
   // 'less'
 ]
 
@@ -42,6 +44,8 @@ watcher
     const extname = internalPath.extname(path)
     if (extname === '.scss') {
       handleScss(path)
+    } else if (extname === '.ts') {
+      handleTs(path)
     }
   })
   .on('change', (path) => {
