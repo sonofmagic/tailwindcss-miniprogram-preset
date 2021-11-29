@@ -53,6 +53,8 @@ watcher
     const extname = internalPath.extname(path)
     if (extname === '.scss') {
       handleScss(path)
+    } else if (extname === '.ts') {
+      handleTs(path)
     } else if (extname === '.wxml') {
       const guessScssPath = path.replace('.wxml', '.scss')
       const exists = fs.existsSync(guessScssPath)

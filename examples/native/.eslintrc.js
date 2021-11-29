@@ -15,6 +15,8 @@ module.exports = {
   },
   globals: {
     App: true,
-    wx: true
+    wx: true,
+    getApp: true,
+    Page: true
   }
 }

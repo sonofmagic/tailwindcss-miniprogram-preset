@@ -19,7 +19,11 @@
     "pretty": true,
     "strictPropertyInitialization": true,
     "lib": ["es6"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./miniprogram/*"]
+    }
   },
   "include": ["./**/*.ts", "scripts/ts.js"],
   "exclude": ["node_modules"]

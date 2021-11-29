@@ -1,10 +1,10 @@
 // logs.ts
 // const util = require('../../utils/util.js')
-import { formatTime } from '../../utils/util'
+import { formatTime } from '../../utils/util.js'
 
 Page({
   data: {
-    logs: [],
+    logs: []
   },
   onLoad() {
     this.setData({
@@ -13,7 +13,7 @@ Page({
           date: formatTime(new Date(log)),
           timeStamp: log
         }
-      }),
+      })
     })
-  },
+  }
 })
