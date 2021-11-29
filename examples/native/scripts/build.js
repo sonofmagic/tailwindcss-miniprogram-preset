@@ -3,11 +3,10 @@ const fs = require('fs')
 /**
  * @type {import('postcss').Postcss}
  */
-const postcss = require('postcss')
 const chokidar = require('chokidar')
-const sass = require('sass')
-const Fiber = require('fibers')
 const internalPath = require('path')
+// const tsc = require('typescript/lib/tsc')
+const handleScss = require('./scss')
 // purgecss
 
 const suffixArray = [
@@ -23,7 +22,7 @@ const suffixArray = [
  * @param {Array} arr
  * @returns {string}
  */
-function getHolder (arr) {
+function getHolder(arr) {
   if (arr.length === 1) {
     return arr[0]
   } else if (arr.length > 1) {
@@ -36,39 +35,21 @@ const watcher = chokidar.watch(`./miniprogram/**/*.${getHolder(suffixArray)}`, {
   ignored: /(^|[\/\\])\../, // ignore dotfiles
   persistent: true
 })
-const { plugins } = require('../postcss.config')
-
-function handleScss (path) {
-  sass.render({
-    file: path,
-    fiber: Fiber
-  }, (err, result) => {
-    if (err) {
-      console.error(err)
-    }
-    const destPath = path.replace(/\.scss$/, '.wxss')
-    postcss(plugins).process(result.css, {
-      from: path,
-      to: destPath
-    }).then(result => {
-      fs.writeFile(destPath, result.css, () => true)
-      if (result.map) {
-        fs.writeFile(destPath + '.map', result.map.toString(), () => true)
-      }
-    })
-  })
-}
 
 watcher
-  .on('add', path => {
+  .on('add', (path) => {
     log(`File ${path} has been added`)
     const extname = internalPath.extname(path)
-    if (extname === '.scss') { handleScss(path) }
+    if (extname === '.scss') {
+      handleScss(path)
+    }
   })
   .on('change', (path) => {
     log(`File ${path} has been change`)
     const extname = internalPath.extname(path)
-    if (extname === '.scss') { handleScss(path) } else if (extname === '.wxml') {
+    if (extname === '.scss') {
+      handleScss(path)
+    } else if (extname === '.wxml') {
       const guessScssPath = path.replace('.wxml', '.scss')
       const exists = fs.existsSync(guessScssPath)
       if (exists) {
@@ -76,8 +57,8 @@ watcher
       }
     }
   })
-  .on('unlink', path => log(`File ${path} has been removed`))
-  .on('error', error => log(`Watcher error: ${error}`))
+  .on('unlink', (path) => log(`File ${path} has been removed`))
+  .on('error', (error) => log(`Watcher error: ${error}`))
   .on('ready', () => {
     log('Initial scan complete. Ready for changes')
   })

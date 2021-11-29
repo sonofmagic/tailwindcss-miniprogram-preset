@@ -19,14 +19,8 @@
     "pretty": true,
     "strictPropertyInitialization": true,
     "lib": ["es6"],
-    "typeRoots": [
-      "./typings"
-    ]
+    "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "./**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
 }
