@@ -1,13 +1,10 @@
 const log = console.log
 const fs = require('fs')
-/**
- * @type {import('postcss').Postcss}
- */
+
 const chokidar = require('chokidar')
 const internalPath = require('path')
+const { handleScss, handleTs } = require('./assets')
 
-const handleScss = require('./scss')
-const handleTs = require('./ts')
 // purgecss
 
 const suffixArray = [
