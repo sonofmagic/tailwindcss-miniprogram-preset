@@ -21,6 +21,6 @@
     "lib": ["es6"],
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "scripts/ts.js"],
   "exclude": ["node_modules"]
 }
