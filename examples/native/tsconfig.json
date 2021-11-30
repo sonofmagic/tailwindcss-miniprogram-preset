@@ -19,14 +19,12 @@
     "pretty": true,
     "strictPropertyInitialization": true,
     "lib": ["es6"],
-    "typeRoots": [
-      "./typings"
-    ]
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./miniprogram/*"]
+    }
   },
-  "include": [
-    "./**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./**/*.ts", "scripts/**/*"],
+  "exclude": ["node_modules"]
 }

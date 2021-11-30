@@ -11,8 +11,8 @@ const config = {
       file: pkg.main,
       format: 'cjs',
       exports: 'auto'
-    }
-    // { format: 'esm', file: pkg.module }
+    },
+    { format: 'esm', file: pkg.module }
   ],
 
   plugins: [

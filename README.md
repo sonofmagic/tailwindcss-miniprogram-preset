@@ -54,6 +54,8 @@ module.exports = {
 }
 ```
 
+> createPreset 这个方法，可以根据配置创建自定义的预设，以及是否启用 rem2rpx，可配合其他 `postcss` 插件使用，如[postcss-rem-to-responsive-pixel](https://www.npmjs.com/package/postcss-rem-to-responsive-pixel)
+
 Then import tailwindcss
 
 ```css
@@ -92,6 +94,34 @@ or Using with Preprocessors
 - `important` 默认 `true` , 需要用它去覆盖原生样式
 - `purge.enabled` 默认 `process.env.NODE_ENV === 'production'` ,可通过 `NODE_ENV` 环境变量,避免打包出来的 wxss 过大的问题,开发环境默认关闭
 - 一些 `class` 的 `rename` 见下表
+
+## 关闭转化
+
+将 `createPreset` 的 `rem2rpx` 设置为 `false` 即可
+```js
+// tailwind.config.js
+presets: [createPreset({
+  rem2rpx: false
+})]
+```
+
+此时需要转化为 `rpx` ，可以使用 [`postcss-rem-to-responsive-pixel`](https://www.npmjs.com/package/postcss-rem-to-responsive-pixel)
+
+可以达到同样效果的 `postcss` 配置 `demo`:
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('autoprefixer'),
+    require('tailwindcss'),
+    require('postcss-rem-to-responsive-pixel')({
+      rootValue: 32,
+      propList: ['*'],
+      transformUnit: 'rpx'
+    })
+  ]
+}
+```
 
 ## 定制化兼容小程序的牺牲
 

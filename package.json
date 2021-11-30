@@ -1,8 +1,9 @@
 {
   "name": "tailwindcss-miniprogram-preset",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "tailwindcss-miniprogram-preset 助力微信小程序开发者!",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
@@ -58,6 +59,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
     "jest": "^27.3.1",
+    "postcss": "^8.4.1",
+    "postcss-rem-to-responsive-pixel": "^5.0.0",
     "rollup": "^2.60.1",
     "tailwindcss": "^2.2.19",
     "ts-jest": "^27.0.7",
