@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const chokidar = require('chokidar')
 const internalPath = require('path')
-const { handleScss, handleTs } = require('./assets')
+const { handleScss, handleTs, copy } = require('./assets')
 
 // purgecss
 
@@ -12,7 +12,9 @@ const suffixArray = [
   'scss',
   // wxml 更改触发 css purge
   'wxml',
-  'ts'
+  'ts',
+  'json',
+  'wxs'
   // 'less'
 ]
 
@@ -34,31 +36,39 @@ const watcher = chokidar.watch(`./miniprogram/**/*.${getHolder(suffixArray)}`, {
   ignored: /(^|[\/\\])\../, // ignore dotfiles
   persistent: true
 })
+const cwd = process.cwd()
+const scssOptions = {
+  dir: 'dist',
+  cwd
+}
+
+function handleFile(path, isChange = false) {
+  const extname = internalPath.extname(path)
+  if (extname === '.scss') {
+    handleScss(path, scssOptions)
+  } else if (extname === '.ts') {
+    handleTs(path, scssOptions.dir)
+  } else if (isChange && extname === '.wxml') {
+    const guessScssPath = path.replace('.wxml', '.scss')
+    const exists = fs.existsSync(guessScssPath)
+    if (exists) {
+      handleScss(guessScssPath, scssOptions)
+    }
+    copy(path, scssOptions.dir)
+  } else {
+    // copy
+    copy(path, scssOptions.dir)
+  }
+}
 
 watcher
   .on('add', (path) => {
     log(`File ${path} has been added`)
-    const extname = internalPath.extname(path)
-    if (extname === '.scss') {
-      handleScss(path)
-    } else if (extname === '.ts') {
-      handleTs(path)
-    }
+    handleFile(path)
   })
   .on('change', (path) => {
     log(`File ${path} has been change`)
-    const extname = internalPath.extname(path)
-    if (extname === '.scss') {
-      handleScss(path)
-    } else if (extname === '.ts') {
-      handleTs(path)
-    } else if (extname === '.wxml') {
-      const guessScssPath = path.replace('.wxml', '.scss')
-      const exists = fs.existsSync(guessScssPath)
-      if (exists) {
-        handleScss(guessScssPath)
-      }
-    }
+    handleFile(path, true)
   })
   .on('unlink', (path) => log(`File ${path} has been removed`))
   .on('error', (error) => log(`Watcher error: ${error}`))
