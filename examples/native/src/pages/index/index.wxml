@@ -25,4 +25,9 @@
   <view class="bg-green-400 rounded-full w-8 h-8 max-h"></view>
   <view class="bg-green-400 rounded-full w-20 h-20 max-h"></view>
   <view class="bg-green-400 rounded-full w-32 h-32 max-h"></view>
+  <view class="zxcvbnm,./asdfghjkl;'qwertyuiop[]\1234567890-=?:{}|`~!@#$%^&*()_+>">
+    zxcvbnm,./asdfghjkl;'qwertyuiop[]\1234567890-=?:{}|`~!@#$%^&*()_+>
+  </view>
+  <view>zxcvbnm asdfghjkl qwertyuiop 1234567890- _</view>
+  <!-- <view><></view> -->
 </view>
