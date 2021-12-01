@@ -5,6 +5,7 @@ const fs = require('fs')
 const path = require('path')
 
 const { plugins } = require('../../postcss.config')
+const { removePrefix } = require('./common')
 
 function handleScss(sourcePath, { cwd, dir }) {
   return new Promise((resolve, reject) => {
@@ -20,7 +21,7 @@ function handleScss(sourcePath, { cwd, dir }) {
         const destPath = path.resolve(
           cwd,
           dir,
-          sourcePath.replace(/miniprogram[\\/]/, '').replace(/\.scss$/, '.wxss')
+          removePrefix(sourcePath).replace(/\.scss$/, '.wxss')
         ) // sourcePath.replace(/\.scss$/, '.wxss')
         const destDir = path.dirname(destPath)
         fs.mkdir(

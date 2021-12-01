@@ -1,10 +1,10 @@
 const esbuild = require('esbuild')
 const path = require('path')
-
+const { removePrefix } = require('./common')
 async function handleEsbuild(entryPoint, dir) {
   const outfile = path.join(
     dir,
-    entryPoint.replace(/miniprogram[\\/]/, '').replace(/\.ts$/, '.js')
+    removePrefix(entryPoint).replace(/\.ts$/, '.js')
   )
 
   // const entrydir = path.dirname(entryPoint)

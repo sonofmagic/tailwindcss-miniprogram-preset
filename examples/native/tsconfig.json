@@ -22,7 +22,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./miniprogram/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["./**/*.ts", "scripts/**/*"],

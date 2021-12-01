@@ -31,7 +31,7 @@ function getHolder(arr) {
   }
   return ''
 }
-const watcher = chokidar.watch(`./miniprogram/**/*.${getHolder(suffixArray)}`, {
+const watcher = chokidar.watch(`./src/**/*.${getHolder(suffixArray)}`, {
   // eslint-disable-next-line no-useless-escape
   ignored: /(^|[\/\\])\../, // ignore dotfiles
   persistent: true
