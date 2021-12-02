@@ -23,7 +23,7 @@ const pluginsTable = allCorePlugins.reduce((acc, cur) => {
 }, pluginsTableHeader)
 
 fs.writeFileSync(
-  resolve('../README.md'),
+  resolve('../CorePlugins.md'),
   mdTemplate.replace('{{id:corePlugins}}', pluginsTable)
 )
 // ; (async () => {

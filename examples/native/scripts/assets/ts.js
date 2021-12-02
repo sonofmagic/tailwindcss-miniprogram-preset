@@ -1,15 +1,22 @@
 const esbuild = require('esbuild')
 const path = require('path')
+const { removePrefix } = require('./common')
+async function handleEsbuild(entryPoint, dir) {
+  const outfile = path.join(
+    dir,
+    removePrefix(entryPoint).replace(/\.ts$/, '.js')
+  )
 
-async function handleEsbuild(entryPoint) {
-  const outdir = path.dirname(entryPoint)
+  // const entrydir = path.dirname(entryPoint)
+  // const outdir = path.resolve(entrydir, '..', dir) // sourcePath.replace(/\.scss$/, '.wxss')
   const res = await esbuild.build({
     entryPoints: [entryPoint],
+    outfile,
     // entryNames: [],
     bundle: false,
     watch: false,
     absWorkingDir: process.cwd(),
-    outdir,
+    // outdir,
     tsconfig: './tsconfig.json',
     target: ['es2015']
   })

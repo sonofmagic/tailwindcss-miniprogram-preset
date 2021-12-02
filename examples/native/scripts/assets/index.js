@@ -1,4 +1,5 @@
 module.exports = {
   handleScss: require('./scss'),
-  handleTs: require('./ts')
+  handleTs: require('./ts'),
+  copy: require('./copy')
 }

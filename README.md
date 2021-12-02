@@ -1,7 +1,7 @@
 # tailwindcss-miniprogram-preset
 
-> tailwindcss 小程序版本预设  
 > tailwindcss-preset for miniprogram
+> tailwindcss 小程序版本预设
 
 用 `tailwindcss` 来改善你的小程序开发体验吧
 
@@ -20,7 +20,10 @@ module.exports = {
 }
 // # v2
 // tailwind.config.js
-const { defaultPreset, createPreset } = require('tailwindcss-miniprogram-preset')
+const {
+  defaultPreset,
+  createPreset
+} = require('tailwindcss-miniprogram-preset')
 module.exports = {
   presets: [defaultPreset]
   // ...
@@ -47,7 +50,10 @@ then add `tailwindcss-miniprogram-preset` into your `presets`:
 
 ```js
 // tailwind.config.js
-const { defaultPreset, createPreset } = require('tailwindcss-miniprogram-preset')
+const {
+  defaultPreset,
+  createPreset
+} = require('tailwindcss-miniprogram-preset')
 module.exports = {
   presets: [defaultPreset]
   // ...
@@ -72,7 +78,7 @@ or Using with Preprocessors
 // @import 'tailwindcss/base';
 // @import 'tailwindcss/components';
 // 只需引入工具类
-@import "tailwindcss/utilities";
+@import 'tailwindcss/utilities';
 ```
 
 ## 最佳实践
@@ -83,31 +89,37 @@ or Using with Preprocessors
 
 使用 `uni-app` 的朋友可以直接使用提供的模板
 
-[uni-app-vue3-tailwind-vscode-template](https://github.com/sonofmagic/uni-app-vue3-tailwind-vscode-template)
+- [vue2](https://github.com/sonofmagic/uni-app-vue2-tailwind-vscode-template)
+
+- [vue3](https://github.com/sonofmagic/uni-app-vue3-tailwind-vscode-template)
 
 ## 默认配置
 
-> 默认配置都可通过 preset merge 策略开启
+> 默认配置都可通过 tailwind 自带的 merge 策略开启, 其中
 
 - `darkMode` 默认 `false`
-- `theme.screens` 默认 `false` , 不需要 pc 那种自适应
-- `important` 默认 `true` , 需要用它去覆盖原生样式
-- `purge.enabled` 默认 `process.env.NODE_ENV === 'production'` ,可通过 `NODE_ENV` 环境变量,避免打包出来的 wxss 过大的问题,开发环境默认关闭
+- `theme.screens` 默认 `false` , 英文它不需要 pc 那种自适应边界
+- `important` 默认 `true` , 需要用它去覆盖原生的样式
+- `purge.enabled` 默认 `process.env.NODE_ENV === 'production'` ,可通过 `NODE_ENV` 环境变量,避免打包出来的 `wxss` 过大的问题, 开发环境默认关闭.
 - 一些 `class` 的 `rename` 见下表
 
-## 关闭转化
+## 如何关闭 rem2rpx 转化?
 
 将 `createPreset` 的 `rem2rpx` 设置为 `false` 即可
+
 ```js
 // tailwind.config.js
-presets: [createPreset({
-  rem2rpx: false
-})]
+presets: [
+  createPreset({
+    rem2rpx: false
+  })
+]
 ```
 
 此时需要转化为 `rpx` ，可以使用 [`postcss-rem-to-responsive-pixel`](https://www.npmjs.com/package/postcss-rem-to-responsive-pixel)
 
 可以达到同样效果的 `postcss` 配置 `demo`:
+
 ```js
 // postcss.config.js
 module.exports = {
@@ -125,12 +137,12 @@ module.exports = {
 
 ## 定制化兼容小程序的牺牲
 
-### 小程序的 class 不支持大量特殊符号
+### 小程序的 class 不支持除'-'和'\_'外的特殊符号
 
 解决方案: 做 class rename 处理
 
-| form | to      | sample             |
-| ---- | ------- | ------------------ |
+| form | to      | sample                 |
+| ---- | ------- | ---------------------- |
 | `\/` | `-div-` | `w-1/4` -> `w-1-div-4` |
 | `\.` | `-dot-` | `w-1.5` -> `w-1-dot-5` |
 
@@ -143,7 +155,7 @@ module.exports = {
 - 去除基于 `:not` 选择器的 `corePlugins`
 - 去除不支持 `*` 选择器的 `corePlugins` , 例如默认添加 `'*, ::before, ::after'` 的插件
 - 清空 variants (`hover:` `focus:` 这些)
-- 不启用 `mode: 'jit'` 即时编译模式，因为 `wxml` 里写 `w-[762px]` ,`[` 和 `]`,会被默认转义为空格，导致即时编译无效。
+- 不启用 `mode: 'jit'` 即时编译模式，因为 `wxml` 里写 `w-[762px]` ,`[` 和 `]`,会被默认转义为空格，导致即时编译无效。(小程序特殊符号只支持 '-' 和 '\_')
 
 ### 去除自适应和无用插件
 
@@ -179,128 +191,4 @@ module.exports = {
 }
 ```
 
-## corePlugins 启用状况
-
-|插件|是否启用|
-|---|---|
-|**preflight**|<span style="color:red;font-weight: bolder;">否</span>|
-|**container**|<span style="color:red;font-weight: bolder;">否</span>|
-|**space**|<span style="color:red;font-weight: bolder;">否</span>|
-|**divideWidth**|<span style="color:red;font-weight: bolder;">否</span>|
-|**divideColor**|<span style="color:red;font-weight: bolder;">否</span>|
-|**divideStyle**|<span style="color:red;font-weight: bolder;">否</span>|
-|**divideOpacity**|<span style="color:red;font-weight: bolder;">否</span>|
-|**accessibility**|<span style="color:red;font-weight: bolder;">否</span>|
-|**appearance**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundAttachment**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundClip**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundColor**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundImage**|<span style="color:green;font-weight: bolder;">是</span>|
-|**gradientColorStops**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundOpacity**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundPosition**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundRepeat**|<span style="color:green;font-weight: bolder;">是</span>|
-|**backgroundSize**|<span style="color:green;font-weight: bolder;">是</span>|
-|**borderCollapse**|<span style="color:green;font-weight: bolder;">是</span>|
-|**borderColor**|<span style="color:green;font-weight: bolder;">是</span>|
-|**borderOpacity**|<span style="color:green;font-weight: bolder;">是</span>|
-|**borderRadius**|<span style="color:green;font-weight: bolder;">是</span>|
-|**borderStyle**|<span style="color:green;font-weight: bolder;">是</span>|
-|**borderWidth**|<span style="color:green;font-weight: bolder;">是</span>|
-|**boxSizing**|<span style="color:green;font-weight: bolder;">是</span>|
-|**cursor**|<span style="color:green;font-weight: bolder;">是</span>|
-|**display**|<span style="color:green;font-weight: bolder;">是</span>|
-|**flexDirection**|<span style="color:green;font-weight: bolder;">是</span>|
-|**flexWrap**|<span style="color:green;font-weight: bolder;">是</span>|
-|**placeItems**|<span style="color:red;font-weight: bolder;">否</span>|
-|**placeContent**|<span style="color:red;font-weight: bolder;">否</span>|
-|**placeSelf**|<span style="color:red;font-weight: bolder;">否</span>|
-|**alignItems**|<span style="color:green;font-weight: bolder;">是</span>|
-|**alignContent**|<span style="color:green;font-weight: bolder;">是</span>|
-|**alignSelf**|<span style="color:green;font-weight: bolder;">是</span>|
-|**justifyItems**|<span style="color:green;font-weight: bolder;">是</span>|
-|**justifyContent**|<span style="color:green;font-weight: bolder;">是</span>|
-|**justifySelf**|<span style="color:green;font-weight: bolder;">是</span>|
-|**flex**|<span style="color:green;font-weight: bolder;">是</span>|
-|**flexGrow**|<span style="color:green;font-weight: bolder;">是</span>|
-|**flexShrink**|<span style="color:green;font-weight: bolder;">是</span>|
-|**order**|<span style="color:green;font-weight: bolder;">是</span>|
-|**float**|<span style="color:green;font-weight: bolder;">是</span>|
-|**clear**|<span style="color:green;font-weight: bolder;">是</span>|
-|**fontFamily**|<span style="color:red;font-weight: bolder;">否</span>|
-|**fontWeight**|<span style="color:green;font-weight: bolder;">是</span>|
-|**height**|<span style="color:red;font-weight: bolder;">否</span>|
-|**fontSize**|<span style="color:green;font-weight: bolder;">是</span>|
-|**lineHeight**|<span style="color:green;font-weight: bolder;">是</span>|
-|**listStylePosition**|<span style="color:green;font-weight: bolder;">是</span>|
-|**listStyleType**|<span style="color:green;font-weight: bolder;">是</span>|
-|**margin**|<span style="color:red;font-weight: bolder;">否</span>|
-|**maxHeight**|<span style="color:red;font-weight: bolder;">否</span>|
-|**maxWidth**|<span style="color:green;font-weight: bolder;">是</span>|
-|**minHeight**|<span style="color:green;font-weight: bolder;">是</span>|
-|**minWidth**|<span style="color:green;font-weight: bolder;">是</span>|
-|**objectFit**|<span style="color:green;font-weight: bolder;">是</span>|
-|**objectPosition**|<span style="color:green;font-weight: bolder;">是</span>|
-|**opacity**|<span style="color:green;font-weight: bolder;">是</span>|
-|**outline**|<span style="color:green;font-weight: bolder;">是</span>|
-|**overflow**|<span style="color:green;font-weight: bolder;">是</span>|
-|**overscrollBehavior**|<span style="color:green;font-weight: bolder;">是</span>|
-|**padding**|<span style="color:red;font-weight: bolder;">否</span>|
-|**placeholderColor**|<span style="color:green;font-weight: bolder;">是</span>|
-|**placeholderOpacity**|<span style="color:green;font-weight: bolder;">是</span>|
-|**pointerEvents**|<span style="color:green;font-weight: bolder;">是</span>|
-|**position**|<span style="color:green;font-weight: bolder;">是</span>|
-|**inset**|<span style="color:red;font-weight: bolder;">否</span>|
-|**resize**|<span style="color:green;font-weight: bolder;">是</span>|
-|**boxShadow**|<span style="color:red;font-weight: bolder;">否</span>|
-|**ringWidth**|<span style="color:red;font-weight: bolder;">否</span>|
-|**ringOffsetColor**|<span style="color:red;font-weight: bolder;">否</span>|
-|**ringOffsetWidth**|<span style="color:red;font-weight: bolder;">否</span>|
-|**ringColor**|<span style="color:red;font-weight: bolder;">否</span>|
-|**ringOpacity**|<span style="color:red;font-weight: bolder;">否</span>|
-|**fill**|<span style="color:red;font-weight: bolder;">否</span>|
-|**stroke**|<span style="color:red;font-weight: bolder;">否</span>|
-|**strokeWidth**|<span style="color:red;font-weight: bolder;">否</span>|
-|**tableLayout**|<span style="color:green;font-weight: bolder;">是</span>|
-|**textAlign**|<span style="color:green;font-weight: bolder;">是</span>|
-|**textColor**|<span style="color:green;font-weight: bolder;">是</span>|
-|**textOpacity**|<span style="color:green;font-weight: bolder;">是</span>|
-|**textOverflow**|<span style="color:green;font-weight: bolder;">是</span>|
-|**fontStyle**|<span style="color:green;font-weight: bolder;">是</span>|
-|**textTransform**|<span style="color:green;font-weight: bolder;">是</span>|
-|**textDecoration**|<span style="color:green;font-weight: bolder;">是</span>|
-|**fontSmoothing**|<span style="color:green;font-weight: bolder;">是</span>|
-|**fontVariantNumeric**|<span style="color:green;font-weight: bolder;">是</span>|
-|**letterSpacing**|<span style="color:green;font-weight: bolder;">是</span>|
-|**userSelect**|<span style="color:green;font-weight: bolder;">是</span>|
-|**verticalAlign**|<span style="color:green;font-weight: bolder;">是</span>|
-|**visibility**|<span style="color:green;font-weight: bolder;">是</span>|
-|**whitespace**|<span style="color:green;font-weight: bolder;">是</span>|
-|**wordBreak**|<span style="color:green;font-weight: bolder;">是</span>|
-|**width**|<span style="color:red;font-weight: bolder;">否</span>|
-|**zIndex**|<span style="color:green;font-weight: bolder;">是</span>|
-|**gap**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridAutoFlow**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridTemplateColumns**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridAutoColumns**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridColumn**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridColumnStart**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridColumnEnd**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridTemplateRows**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridAutoRows**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridRow**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridRowStart**|<span style="color:red;font-weight: bolder;">否</span>|
-|**gridRowEnd**|<span style="color:red;font-weight: bolder;">否</span>|
-|**transform**|<span style="color:green;font-weight: bolder;">是</span>|
-|**transformOrigin**|<span style="color:green;font-weight: bolder;">是</span>|
-|**scale**|<span style="color:green;font-weight: bolder;">是</span>|
-|**rotate**|<span style="color:green;font-weight: bolder;">是</span>|
-|**translate**|<span style="color:red;font-weight: bolder;">否</span>|
-|**skew**|<span style="color:green;font-weight: bolder;">是</span>|
-|**transitionProperty**|<span style="color:green;font-weight: bolder;">是</span>|
-|**transitionTimingFunction**|<span style="color:green;font-weight: bolder;">是</span>|
-|**transitionDuration**|<span style="color:green;font-weight: bolder;">是</span>|
-|**transitionDelay**|<span style="color:green;font-weight: bolder;">是</span>|
-|**animation**|<span style="color:green;font-weight: bolder;">是</span>|
-
-
+## [corePlugins 启用状况](./CorePlugins.md)

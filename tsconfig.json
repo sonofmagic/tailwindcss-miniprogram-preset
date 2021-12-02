@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDirs": ["src", "scripts"],
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "types",
@@ -14,6 +14,7 @@
     "pretty": true,
     "sourceMap": false,
     "importHelpers": false,
+    "moduleResolution": "Node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

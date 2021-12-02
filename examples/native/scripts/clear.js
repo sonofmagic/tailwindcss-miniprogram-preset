@@ -1,9 +1,6 @@
 const del = require('del')
 
 ;(async () => {
-  const deletedFilePaths = await del([
-    'miniprogram/**/*.js',
-    'miniprogram/**/*.wxss'
-  ])
+  const deletedFilePaths = await del(['dist'])
   console.log(deletedFilePaths)
 })()
