@@ -4,7 +4,7 @@ const fs = require('fs')
 const chokidar = require('chokidar')
 const internalPath = require('path')
 const { handleScss, handleTs, copy } = require('./assets')
-
+const { preflight } = require('./preflight')
 // purgecss
 
 const suffixArray = [
@@ -64,7 +64,9 @@ function handleFile(path, isChange = false) {
 watcher
   .on('add', (path) => {
     log(`File ${path} has been added`)
-    handleFile(path)
+    preflight(path).then(() => {
+      handleFile(path)
+    })
   })
   .on('change', (path) => {
     log(`File ${path} has been change`)
