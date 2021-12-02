@@ -1,7 +1,8 @@
-const esbuild = require('esbuild')
-const path = require('path')
-const { removePrefix } = require('./common')
-async function handleEsbuild(entryPoint, dir) {
+import * as esbuild from 'esbuild'
+import path from 'path'
+import { removePrefix } from '../common'
+
+export async function handleTs(entryPoint: string, dir: string) {
   const outfile = path.join(
     dir,
     removePrefix(entryPoint).replace(/\.ts$/, '.js')
@@ -22,5 +23,3 @@ async function handleEsbuild(entryPoint, dir) {
   })
   return res
 }
-
-module.exports = handleEsbuild
