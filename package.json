@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-miniprogram-preset",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "tailwindcss-miniprogram-preset 助力微信小程序开发者!",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -11,7 +11,6 @@
   "scripts": {
     "build": "rollup -c",
     "gen": "node --require ts-node/register scripts/gen-readme.ts",
-    "publish:npm": "yarn publish",
     "test": "jest"
   },
   "repository": {
