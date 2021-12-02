@@ -1,9 +1,9 @@
+import fs from 'fs'
+import chokidar from 'chokidar'
+import internalPath from 'path'
+import { handleScss, handleTs, copy } from './assets'
 const log = console.log
-const fs = require('fs')
 
-const chokidar = require('chokidar')
-const internalPath = require('path')
-const { handleScss, handleTs, copy } = require('./assets')
 const { preflight } = require('./preflight')
 // purgecss
 
@@ -18,12 +18,7 @@ const suffixArray = [
   // 'less'
 ]
 
-/**
- *
- * @param {Array} arr
- * @returns {string}
- */
-function getHolder(arr) {
+function getHolder(arr: string[]) {
   if (arr.length === 1) {
     return arr[0]
   } else if (arr.length > 1) {
@@ -42,7 +37,7 @@ const scssOptions = {
   cwd
 }
 
-function handleFile(path, isChange = false) {
+function handleFile(path: string, isChange = false) {
   const extname = internalPath.extname(path)
   if (extname === '.scss') {
     handleScss(path, scssOptions)

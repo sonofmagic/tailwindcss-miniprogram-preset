@@ -1,13 +1,14 @@
-const postcss = require('postcss')
-const sass = require('sass')
-// const Fiber = require('fibers')
-const fs = require('fs')
-const path = require('path')
+import postcss from 'postcss'
+import sass from 'sass'
+import fs from 'fs'
+import path from 'path'
+import { plugins } from '../../postcss.config'
+import { removePrefix } from '../common'
 
-const { plugins } = require('../../postcss.config')
-const { removePrefix } = require('./common')
-
-function handleScss(sourcePath, { cwd, dir }) {
+export function handleScss(
+  sourcePath: string,
+  { cwd, dir }: { cwd: string; dir: string }
+) {
   return new Promise((resolve, reject) => {
     sass.render(
       {
@@ -42,5 +43,3 @@ function handleScss(sourcePath, { cwd, dir }) {
     )
   })
 }
-
-module.exports = handleScss

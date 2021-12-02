@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "node -r ts-node/register scripts/build.js",
+    "dev": "node -r ts-node/register scripts/build.ts",
     "raw:ts": "tsc -w",
-    "build": "cross-env NODE_ENV=production node scripts/build.js",
-    "clear": "node scripts/clear.js"
+    "build": "cross-env NODE_ENV=production node scripts/build.ts",
+    "clear": "node -r ts-node/register scripts/clear.ts"
   },
   "keywords": [],
   "author": "",
   "license": "",
   "devDependencies": {
+    "@types/sass": "^1.43.1",
     "@types/tailwindcss": "^2.2.4",
     "@types/wechat-miniprogram": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
