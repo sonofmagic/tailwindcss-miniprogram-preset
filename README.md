@@ -1,3 +1,5 @@
+👉👉👉 支持 `tailwindcss jit` 引擎的 [`weapp-tailwindcss-webpack-plugin`](https://github.com/sonofmagic/weapp-tailwindcss-webpack-plugin) 正在测试中，赶紧过来看看吧。
+
 # tailwindcss-miniprogram-preset
 
 > tailwindcss-preset for miniprogram
