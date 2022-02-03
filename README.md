@@ -1,5 +1,7 @@
 👉👉👉 支持 `tailwindcss jit` 引擎的 [`weapp-tailwindcss-webpack-plugin`](https://github.com/sonofmagic/weapp-tailwindcss-webpack-plugin) 正在测试中，赶紧过来看看吧。
 
+它能带给开发者最原汁原味的 `jit` 模式开发体验，无需抛弃 `[`,`]`,`/`,`#`,`.` 等特殊符号，这些我都在代码编译打包时进行处理了。
+
 # tailwindcss-miniprogram-preset
 
 > tailwindcss-preset for miniprogram
